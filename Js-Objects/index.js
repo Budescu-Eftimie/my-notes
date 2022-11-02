@@ -58,17 +58,35 @@ let model = "ferrari";
 console.log(cars[model]); /* no strings are around key as it is 
                            a variable name and not a string */
 
-// Objects in javascript are copied by reference 
-const secondCar = cars
+// Objects in javascript are copied by reference
+const secondCar = cars;
 console.log(secondCar.bugatti); // "veiron"
-secondCar.ford = "focus"
+secondCar.ford = "focus";
 console.log(cars); /* {ferrari: 'california', porsche: '911',  
                       bugatti: 'veiron', ford: 'focus'} */
 
-console.log(secondCar == cars);  // true
+console.log(secondCar == cars); // true
 console.log(secondCar === cars); // true
 
 const emptyObj1 = {};
 const emptyObj2 = {};
-emptyObj1 == emptyObj2;  // false
+emptyObj1 == emptyObj2; // false
 emptyObj1 === emptyObj2; // false
+
+// Shallow copying objects
+
+const person = {
+    age: 27,
+    gender: "female",
+
+};
+
+const secondPerson = Object.assign({}, person);
+
+console.log(secondPerson); // {age: 27, gender: 'female'}
+secondPerson.gender = "male";
+
+console.log(secondPerson); // {age: 27, gender: 'male'}
+console.log(person);       /* {age: 27, gender: 'female'}
+                              original obj is intact   */
+console.log(secondPerson == person); // false
