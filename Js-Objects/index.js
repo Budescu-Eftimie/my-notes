@@ -2,7 +2,8 @@
 const car = {
     wheels: 4,
     color: "red",
-    drive: () => {   // This is a method
+    drive: () => {
+        // This is a method
         console.log("Wroom, Wroom");
     },
 };
@@ -10,7 +11,7 @@ const car = {
 // Each property has a key and a value.
 /* Key is of type string while the value can be of any type,
    can be functions and then we call them methods. */
-car.drive();  // calling the car's drive method
+car.drive(); // calling the car's drive method
 
 // Get keys of object
 
@@ -35,11 +36,39 @@ const teacher = {};
 // Add properties to an object
 
 student.age = 21;
-student['learns fast'] = false;
+student["learns fast"] = false;
 console.log(student); // {"age": 21, "learns fast": false}
 
 // Accessing object properties with dot or square bracket notation
 
 console.log(student.age); // dot notation
-console.log(student['learns fast']); /* square braket notation is useful
+console.log(student["learns fast"]); /* square braket notation is useful
                                         for multi-word properties */
+
+// Using bracket notation to access a property via its key
+
+const cars = {
+    ferrari: "california",
+    porsche: "911",
+    bugatti: "veiron",
+};
+
+let model = "ferrari";
+
+console.log(cars[model]); /* no strings are around key as it is 
+                           a variable name and not a string */
+
+// Objects in javascript are copied by reference 
+const secondCar = cars
+console.log(secondCar.bugatti); // "veiron"
+secondCar.ford = "focus"
+console.log(cars); /* {ferrari: 'california', porsche: '911',  
+                      bugatti: 'veiron', ford: 'focus'} */
+
+console.log(secondCar == cars);  // true
+console.log(secondCar === cars); // true
+
+const emptyObj1 = {};
+const emptyObj2 = {};
+emptyObj1 == emptyObj2;  // false
+emptyObj1 === emptyObj2; // false
