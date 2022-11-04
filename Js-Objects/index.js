@@ -78,7 +78,6 @@ emptyObj1 === emptyObj2; // false
 const person = {
     age: 27,
     gender: "female",
-
 };
 
 const secondPerson = Object.assign({}, person);
@@ -87,6 +86,23 @@ console.log(secondPerson); // {age: 27, gender: 'female'}
 secondPerson.gender = "male";
 
 console.log(secondPerson); // {age: 27, gender: 'male'}
-console.log(person);       /* {age: 27, gender: 'female'}
+console.log(person); /* {age: 27, gender: 'female'}
                               original obj is intact   */
 console.log(secondPerson == person); // false
+
+let obj = {
+    a: 1,
+    b: { c: 2 },
+};
+
+let newObj = Object.assign({}, obj);
+console.log(newObj); // { a: 1, b: { c: 2} }
+
+obj.a = 10;
+console.log(obj); // { a: 10, b: { c: 2} }
+console.log(newObj); // { a: 1, b: { c: 2} }
+
+newObj.b.c = 30;
+console.log(obj); // { a: 10, b: { c: 30} }
+console.log(newObj); // { a: 20, b: { c: 30} }
+
