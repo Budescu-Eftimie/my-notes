@@ -1,4 +1,4 @@
-const student = { firstName: "Eftimie" };
+const student = { firstName: "Eftimie", age: 32 };
 
 let descriptor = Object.getOwnPropertyDescriptor(student, "firstName");
 
@@ -9,13 +9,22 @@ console.log(descriptor);
 // we are now redefining the firstName prop
 Object.defineProperty(student, "firstName", {
     value: "Budescu",
-    writable:false
+    writable: false,
 });
 
-console.log(Object.getOwnPropertyDescriptor(student,"firstName"));
+console.log(Object.getOwnPropertyDescriptor(student, "firstName"));
 // expected output
 // {value: 'Budescu', writable: false, enumerable: false, configurable: false}
 
-student.firstName = "s"
+student.firstName = "s";
 
-console.log(student.firstName);  // "Budescu"
+console.log(student.firstName); // "Budescu"
+
+// Deleting an object property
+
+console.log(student);
+// expected output {firstName: 'Budescu', age: 32}
+
+delete student["age"]; // or student.age
+
+console.log(student); // student.age is gone
