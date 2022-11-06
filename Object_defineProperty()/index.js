@@ -1,3 +1,4 @@
+//"use strict";
 const student = { firstName: "Eftimie", age: 32 };
 
 let descriptor = Object.getOwnPropertyDescriptor(student, "firstName");
@@ -8,8 +9,8 @@ console.log(descriptor);
 
 // we are now redefining the firstName prop
 Object.defineProperty(student, "firstName", {
-    value: "Budescu",
-    writable: false,
+  value: "Budescu",
+  writable: false,
 });
 
 console.log(Object.getOwnPropertyDescriptor(student, "firstName"));
@@ -28,3 +29,23 @@ console.log(student);
 delete student["age"]; // or student.age
 
 console.log(student); // student.age is gone
+
+// Preventing extension of object properties
+
+const car = {
+  model: "fiat",
+  color: "blue",
+  ["max-speed"]: "180 km/h",
+};
+
+console.log(car); // {model: 'fiat', color: 'blue', max-speed: '180 km/h'}
+Object.preventExtensions(car); /* this method block's us from adding new
+                                  properties to the object. */
+
+car.brakes = null;
+delete car["max-speed"]  // stil able to delete properties
+car.color = "black"      // and modify properties
+
+console.log(car);
+
+
