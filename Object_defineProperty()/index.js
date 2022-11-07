@@ -61,3 +61,19 @@ Object.defineProperty(newObj, "getData", {
 });
 
 console.log(newObj.getData); // false
+
+// Object.seal()
+
+const newObj2 = {
+    data: 55,
+    get info() {
+        return this.data;
+    },
+};
+Object.seal(newObj2); /* now we can't add new properties and 
+                         configurable flag of existing properties are set to false */
+
+newObj2.newProp = 10;
+
+console.log(newObj2); // {data: 55} without newProp
+console.log(newObj2.info);
