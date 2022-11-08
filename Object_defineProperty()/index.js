@@ -77,3 +77,18 @@ newObj2.newProp = 10;
 
 console.log(newObj2); // {data: 55} without newProp
 console.log(newObj2.info);
+
+
+// Setter example
+
+const teacher = { name: "John", lastName: "Smith" };
+
+Object.defineProperty(teacher, "setName", {
+    set(value) {
+        this.name = value;
+    },
+});
+
+teacher.setName = "Mike";
+
+console.log(teacher);
