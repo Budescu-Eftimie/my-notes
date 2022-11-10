@@ -78,7 +78,6 @@ newObj2.newProp = 10;
 console.log(newObj2); // {data: 55} without newProp
 console.log(newObj2.info);
 
-
 // Setter example
 
 const teacher = { name: "John", lastName: "Smith" };
@@ -91,4 +90,22 @@ Object.defineProperty(teacher, "setName", {
 
 teacher.setName = "Mike";
 
-console.log(teacher);
+console.log(teacher); // {name: 'Mike', lastName: 'Smith'}
+
+const person = {
+    firstName: "Eftimie",
+    lastName: "Budescu",
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    },
+    set fullName(value) {
+        const parts = value.split(" ");
+        this.firstName = parts[0];
+        this.lastName = parts[1];
+    },
+};
+console.log(person); // {firstName: 'Eftimie', lastName: 'Budescu'}
+console.log(person.fullName); // Eftimie Budescu
+person.fullName = "Andreea Stancu";
+console.log(person); // {firstName: 'Andreea', lastName: 'Stancu'}
+console.log(person.fullName); // Andreea Stancu
