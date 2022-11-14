@@ -1,5 +1,4 @@
 const namesList = ["Ingrid", "Vesna", "Timi", "Romanticu"];
-
 console.log(namesList); // (4) ['Ingrid', 'Vesna', 'Timi', 'Romanticu']
 
 const person = {
@@ -19,3 +18,16 @@ namesList.push(doSomething());
 
 console.log(namesList); // (7) ['Ingrid', 'Vesna', 'Timi', 'Romanticu', {…}, ƒ, true]
 
+// How to get the length of an array
+console.log(namesList.length);
+
+// pop() method
+let list = [0, 1, 2, 3];
+let lastElement;
+lastElement=list.pop();
+console.log(lastElement); // 3
+
+list.unshift('newElement')
+console.log(list); // ['newElement', 0, 1, 2]
+list.shift()
+console.log(list); // [0, 1, 2]
