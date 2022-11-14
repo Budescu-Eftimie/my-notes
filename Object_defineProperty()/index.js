@@ -95,6 +95,7 @@ console.log(teacher); // {name: 'Mike', lastName: 'Smith'}
 const person = {
     firstName: "Eftimie",
     lastName: "Budescu",
+
     get fullName() {
         return `${this.firstName} ${this.lastName}`;
     },
@@ -104,8 +105,28 @@ const person = {
         this.lastName = parts[1];
     },
 };
+
 console.log(person); // {firstName: 'Eftimie', lastName: 'Budescu'}
 console.log(person.fullName); // Eftimie Budescu
 person.fullName = "Andreea Stancu";
 console.log(person); // {firstName: 'Andreea', lastName: 'Stancu'}
 console.log(person.fullName); // Andreea Stancu
+person.firstName = "luiza";
+console.log(person.firstName);
+
+const obj1 = {
+    firstName: "Eftimie2",
+    lastName: "Budescu2",
+};
+
+Object.defineProperty(obj1, "fullName", {
+    get() {return `${this.firstName} ${this.lastName}`},
+    set(value) {
+        const parts = value.split(" ");
+        this.firstName = parts[0];
+        this.lastName = parts[1];
+    },
+})
+
+obj1.fullName = "anita maria2"
+console.log(obj1);
