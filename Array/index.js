@@ -24,10 +24,12 @@ console.log(namesList.length);
 // pop() method
 let list = [0, 1, 2, 3];
 let lastElement;
-lastElement=list.pop();
+lastElement = list.pop();
 console.log(lastElement); // 3
 
-list.unshift('newElement')
+list.unshift("newElement");
 console.log(list); // ['newElement', 0, 1, 2]
-list.shift()
+list.shift();
+list.push(1, 2, 3);
 console.log(list); // [0, 1, 2]
+console.log(typeof list);  // object
