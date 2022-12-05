@@ -37,23 +37,30 @@ console.log(typeof list); // object
 // Array.prototype.splice()
 
 list = [0, 1, 2, 3];
-let spliced = list.splice(-3, '2', "1");
+let spliced = list.splice(-3, "2", "1");
 
-console.log(list);      // [0, "1", 3]
+console.log(list); // [0, "1", 3]
 
-console.log(spliced);   // [1, 2, 3]
+console.log(spliced); // [1, 2]
 
 list = [0, 1, 2, 3];
-spliced = list.splice(-3, 'mm', "1");
+spliced = list.splice(-3, "mm", "1");
 
-console.log(list);      // [0, "1", 1, 2, 3]
+console.log(list); // [0, "1", 1, 2, 3]
 
-console.log(spliced);   // []
+console.log(spliced); // []
 
 // Array.prototype.slice() method
 
-const fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
+const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
 const citrus = fruits.slice(1, 3);
 
 // fruits contains ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango']
 // citrus contains ['Orange','Lemon']
+
+const people = ["Mike", "Andreea", "Andrei", "Timi", "John"];
+const peopleSubset = people.slice(1,2);
+
+console.log(peopleSubset);
+// expected output:
+// ['Andreea']
