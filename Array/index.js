@@ -59,8 +59,16 @@ const citrus = fruits.slice(1, 3);
 // citrus contains ['Orange','Lemon']
 
 const people = ["Mike", "Andreea", "Andrei", "Timi", "John"];
-const peopleSubset = people.slice(1,2);
+const peopleSubset = people.slice(1, 2);
 
 console.log(peopleSubset);
 // expected output:
 // ['Andreea']
+
+// we can push an array to another array
+
+const myArr = [1, 2, 3];
+
+myArr.push([1, 2], 3);
+
+console.log(myArr); // [1, 2, 3, [1, 2], 3]
