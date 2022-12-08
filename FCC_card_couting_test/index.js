@@ -18,7 +18,7 @@ function cc(card) {
         case 8:
         case 9:
             break;
-        case 0:
+        case 10:
         case "J":
         case "Q":
         case "K":
